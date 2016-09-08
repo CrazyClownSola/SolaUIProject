@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="DragRoundView">
+        <attr name="dg_text_size" format="dimension"/>
+        <attr name="dg_text_color" format="color"/>
+        <attr name="dg_round_radius" format="dimension"/>
+        <attr name="dg_round_background" format="color"/>
+        <attr name="dg_size_offset" format="dimension"/>
+    </declare-styleable>
+</resources>

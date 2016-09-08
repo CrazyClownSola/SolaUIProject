@@ -41,7 +41,8 @@ public class DragFullView extends View {
 
     private int currentX, currentY, originalX, originalY;
     private float alpha, distance;
-    private int radiusMin = 8, radiusMax = 16, currentRadius;
+
+    private int radiusMin = 8, radiusMax = 16, currentRadius, destroyType;
 
     //    private float waveRadiusOne, waveRadiusTwo;
     private float starRange;
@@ -52,16 +53,17 @@ public class DragFullView extends View {
 
     private Path quadPath = new Path(), mStarPath = new Path();
 
-
     private PointF point1 = new PointF(), point2 = new PointF(), point3 = new PointF(),
             point4 = new PointF(), point5 = new PointF(), point6 = new PointF(),
             pointP = new PointF(), pointP1 = new PointF();
 
     private AnimatorSet destroyAnim;
 
-    private boolean isAnimRunning = false;
+    private boolean isAnimRunning = false, isDrawStar = true;
 
     private IDragFullListener listener;
+
+    private Drawable destroy_One, destroy_Two, destroy_Three;
 
     // ===========================================================
     // Constructors
@@ -81,10 +83,15 @@ public class DragFullView extends View {
         init();
     }
 
-
     // ===========================================================
     // Getter & Setter
     // ===========================================================
+
+    @SuppressWarnings("UnusedDeclaration")
+    public void setDestroyType(int destroyType) {
+        this.destroyType = destroyType;
+        invalidate();
+    }
 
     @SuppressWarnings("UnusedDeclaration")
     public void setListener(IDragFullListener listener) {
@@ -119,6 +126,10 @@ public class DragFullView extends View {
         this.radiusMin = radiusMin;
     }
 
+    @SuppressWarnings("UnusedDeclaration")
+    public void setDrawStar(boolean drawStar) {
+        isDrawStar = drawStar;
+    }
 
     // ===========================================================
     // Methods for/from SuperClass/Interfaces
@@ -220,19 +231,41 @@ public class DragFullView extends View {
     }
 
     private void drawStar(Canvas canvas) {
-        canvas.save();
-        canvas.translate(currentX, currentY);
-        canvas.scale(1, -1);
-        if (mStarPath.isEmpty()) {
-            mStarPath.moveTo(pointP.x, pointP.y);
-        } else
-            mStarPath.lineTo(pointP.x, pointP.y);
-        // 三条辅助线
-//            canvas.drawCircle(0, 0, radiusMax, createPaint(getColor(R.color.cpb_blue)));
-//            canvas.drawCircle(pointP1.x, pointP1.y, 10, createStroke(getColor(R.color.color_default_white)));
-//            canvas.drawLine(pointP1.x, pointP1.y, pointP.x, pointP.y, createPaint(getColor(R.color.color_default_black)));
-        canvas.drawPath(mStarPath, createPoint());
-        canvas.restore();
+        if (isDrawStar) {
+            canvas.save();
+            canvas.translate(currentX, currentY);
+            canvas.scale(1, -1);
+            if (destroyType == 0) {
+                if (destroy_One == null)
+                    destroy_One = ContextCompat.getDrawable(getContext(), R.drawable.icon_drag_destroy_1);
+                destroy_One.setBounds(-50, -50, 50, 50);
+                destroy_One.draw(canvas);
+            } else if (destroyType == 1) {
+                if (destroy_Two == null)
+                    destroy_Two = ContextCompat.getDrawable(getContext(), R.drawable.icon_drag_destroy_2);
+                destroy_Two.setBounds(-50, -50, 50, 50);
+                destroy_Two.draw(canvas);
+            } else if (destroyType == 2) {
+                if (destroy_Three == null)
+                    destroy_Three = ContextCompat.getDrawable(getContext(), R.drawable.icon_drag_destroy_3);
+                destroy_Three.setBounds(-50, -50, 50, 50);
+                destroy_Three.draw(canvas);
+            }
+            canvas.restore();
+//            canvas.save();
+//            canvas.translate(currentX, currentY);
+//            canvas.scale(1, -1);
+//            if (mStarPath.isEmpty()) {
+//                mStarPath.moveTo(pointP.x, pointP.y);
+//            } else
+//                mStarPath.lineTo(pointP.x, pointP.y);
+//            // 三条辅助线
+////            canvas.drawCircle(0, 0, radiusMax, createPaint(getColor(R.color.cpb_blue)));
+////            canvas.drawCircle(pointP1.x, pointP1.y, 10, createStroke(getColor(R.color.color_default_white)));
+////            canvas.drawLine(pointP1.x, pointP1.y, pointP.x, pointP.y, createPaint(getColor(R.color.color_default_black)));
+//            canvas.drawPath(mStarPath, createPoint());
+//            canvas.restore();
+        }
     }
 
     private void calculate() {
@@ -316,14 +349,41 @@ public class DragFullView extends View {
     }
 
     private void triggerStar() {
+        if (!isDrawStar) {
+            isAnimRunning = false;
+            destroyAnim = null;
+            if (listener != null)
+                listener.onDragFinish(true);
+            starRange = 0;
+        } else {
+            doReleasePicChange();
+//            if (destroyAnim == null) {
+//                destroyAnim = new AnimatorSet();
+//                ObjectAnimator aRange = ObjectAnimator.ofFloat(this, "starRange", 0, 1080);
+//                destroyAnim.play(aRange);
+//                destroyAnim.setDuration(700);
+//                destroyAnim.addListener(new AnimatorListenerAdapter() {
+//                    @Override
+//                    public void onAnimationEnd(Animator animation) {
+//                        super.onAnimationEnd(animation);
+//                        isAnimRunning = false;
+//                        destroyAnim = null;
+//                        if (listener != null)
+//                            listener.onDragFinish(true);
+//                        starRange = 0;
+//                    }
+//                });
+//            }
+//            isAnimRunning = true;
+//            destroyAnim.start();
+        }
+    }
+
+    private void doReleasePicChange() {
         if (destroyAnim == null) {
             destroyAnim = new AnimatorSet();
-//            ObjectAnimator aRadius1 = ObjectAnimator.ofFloat(this, "waveRadiusOne", 0, radiusMax);
-//            ObjectAnimator aRadius2 = ObjectAnimator.ofFloat(this, "waveRadiusTwo", 0, radiusMax);
-//            aRadius2.setStartDelay(400);
-            ObjectAnimator aRange = ObjectAnimator.ofFloat(this, "starRange", 0, 1080);
-//            destroyAnim.play(aRadius1).with(aRadius2).before(aRange);
-            destroyAnim.play(aRange);
+            ObjectAnimator repeatAnim = ObjectAnimator.ofInt(this, "destroyType", 0, 1, 2, 3);
+            destroyAnim.play(repeatAnim);
             destroyAnim.setDuration(700);
             destroyAnim.addListener(new AnimatorListenerAdapter() {
                 @Override
@@ -350,7 +410,7 @@ public class DragFullView extends View {
         return ContextCompat.getColor(getContext(), id);
     }
 
-    private Paint pointPaint;
+//    private Paint pointPaint;
 
     private Paint createPaint() {
         if (mPaint == null) {
@@ -363,17 +423,17 @@ public class DragFullView extends View {
         return mPaint;
     }
 
-    private Paint createPoint() {
-        if (pointPaint == null) {
-            pointPaint = new Paint();
-            pointPaint.setAntiAlias(true);
-            pointPaint.setStrokeCap(Paint.Cap.ROUND); // 设置画笔为圈形
-        }
-        pointPaint.setStyle(Paint.Style.STROKE);
-        pointPaint.setStrokeWidth(2);
-        pointPaint.setColor(getColor(R.color.color_drag_red));
-        return pointPaint;
-    }
+//    private Paint createPoint() {
+//        if (pointPaint == null) {
+//            pointPaint = new Paint();
+//            pointPaint.setAntiAlias(true);
+//            pointPaint.setStrokeCap(Paint.Cap.ROUND); // 设置画笔为圈形
+//        }
+//        pointPaint.setStyle(Paint.Style.STROKE);
+//        pointPaint.setStrokeWidth(2);
+//        pointPaint.setColor(getColor(R.color.color_drag_red));
+//        return pointPaint;
+//    }
 
 
     @SuppressWarnings("UnusedDeclaration")
