@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/color_default_white"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/id_btn_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="start"/>
+
+        <Button
+            android:id="@+id/id_btn_pause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="pause"/>
+
+        <Button
+            android:id="@+id/id_btn_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="end"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal">
+
+        <com.sola.github.edgeloadingview.EdgeLoadingView
+            android:id="@+id/id_edge_loading"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            app:edge_cycle_duration="1800"
+            />
+
+
+        <com.sola.github.edgeloadingview.EdgeLoadingView
+            android:id="@+id/id_edge_loading_2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            app:edge_cycle_duration="2000"
+            />
+
+        <com.sola.github.edgeloadingview.EdgeLoadingView
+            android:id="@+id/id_edge_loading_3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            app:edge_cycle_duration="2200"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal">
+
+        <com.sola.github.edgeloadingview.EdgeLoadingView
+            android:id="@+id/id_edge_loading_4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            app:edge_cycle_duration="2400"
+            />
+
+
+        <com.sola.github.edgeloadingview.EdgeLoadingView
+            android:id="@+id/id_edge_loading_5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            app:edge_cycle_duration="2600"
+            />
+
+        <com.sola.github.edgeloadingview.EdgeLoadingView
+            android:id="@+id/id_edge_loading_6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            app:edge_cycle_duration="2800"
+            />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.sola.github.edgeloadingview.EdgeLoadingView
+            android:id="@+id/id_edge_loading_7"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            app:edge_cycle_duration="3000"
+            app:edge_cycle_radius="40dp"
+            />
+
+    </FrameLayout>
+
+</LinearLayout>

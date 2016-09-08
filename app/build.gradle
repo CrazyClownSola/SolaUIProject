@@ -3,16 +3,20 @@ apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'me.tatarka.retrolambda'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.0"
+
+    def config = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion config.getAt("androidCompileSdkVersion")
+    buildToolsVersion config.getAt("androidBuildToolsVersion")
 
     defaultConfig {
         applicationId "com.sola.github.solauiproject"
-        minSdkVersion 23
-        targetSdkVersion 24
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion config.getAt("androidMinSdkVersion")
+        targetSdkVersion config.getAt("androidTargetSdkVersion")
+        versionCode config.getAt("androidVersionCode")
+        versionName config.getAt("androidVersionName")
     }
+    
     buildTypes {
         release {
             minifyEnabled false
@@ -28,16 +32,29 @@ apt {
 }
 
 def supportV = '24.1.1'
+def designV = '24.2.0'
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile project(':dragfullview')
+    compile project(':edgeloadingview')
 
-    apt "org.androidannotations:androidannotations:4.0.0"
-    compile 'org.androidannotations:androidannotations-api:4.0.0'
-    compile "com.android.support:appcompat-v7:$supportV"
-    compile "com.android.support:support-v4:$supportV"
-    compile "com.android.support:recyclerview-v7:$supportV"
-    compile "com.android.support:design:$supportV"
+    def dependencies = rootProject.ext.appDependencies
+    // AA 框架的引用
+    apt dependencies.androidannotations
+    compile dependencies.androidannotations_api
+
+    compile dependencies.recyclerView
+    compile dependencies.appcompat
+    compile dependencies.cardview
+    compile dependencies.design
+
+//    apt "org.androidannotations:androidannotations:4.0.0"
+//    compile 'org.androidannotations:androidannotations-api:4.0.0'
+//
+//    compile "com.android.support:appcompat-v7:$supportV"
+////    compile "com.android.support:support-v4:$supportV"
+//    compile "com.android.support:recyclerview-v7:$designV"
+//    compile "com.android.support:design:$designV"
 }
