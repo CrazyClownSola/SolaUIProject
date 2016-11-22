@@ -1,1 +1,2 @@
-include ':app', ':dragfullview', ':edgeloadingview'
+include ':app', ':dragfullview'
+//        ':edgeloadingview'

@@ -33,4 +33,24 @@ public class MainActivity extends RxBaseActivity {
                         .putString("title", "Edge")
                         .build());
     }
+
+    @Click
+    public void id_btn_web() {
+        Navigator.getInstance().switchActivity(
+                mContext.get(),
+                WebFixContentActivity_.class,
+                BundleFactory.getInstance()
+                        .putString("title", "网页")
+                        .build());
+    }
+
+    @Click
+    public void id_btn_scan() {
+        Navigator.getInstance().switchActivity(
+                mContext.get(),
+                ScanViewActivity_.class,
+                BundleFactory.getInstance()
+                        .putString("title", "扫描")
+                        .build());
+    }
 }

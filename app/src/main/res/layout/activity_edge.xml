@@ -36,7 +36,7 @@
         android:layout_height="120dp"
         android:orientation="horizontal">
 
-        <com.sola.github.edgeloadingview.EdgeLoadingView
+        <com.sola.github.loading_view.EdgeLoadingView
             android:id="@+id/id_edge_loading"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -46,7 +46,7 @@
             />
 
 
-        <com.sola.github.edgeloadingview.EdgeLoadingView
+        <com.sola.github.loading_view.EdgeLoadingView
             android:id="@+id/id_edge_loading_2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -55,7 +55,7 @@
             app:edge_cycle_duration="2000"
             />
 
-        <com.sola.github.edgeloadingview.EdgeLoadingView
+        <com.sola.github.loading_view.EdgeLoadingView
             android:id="@+id/id_edge_loading_3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -70,7 +70,7 @@
         android:layout_height="120dp"
         android:orientation="horizontal">
 
-        <com.sola.github.edgeloadingview.EdgeLoadingView
+        <com.sola.github.loading_view.EdgeLoadingView
             android:id="@+id/id_edge_loading_4"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -80,7 +80,7 @@
             />
 
 
-        <com.sola.github.edgeloadingview.EdgeLoadingView
+        <com.sola.github.loading_view.EdgeLoadingView
             android:id="@+id/id_edge_loading_5"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -89,7 +89,7 @@
             app:edge_cycle_duration="2600"
             />
 
-        <com.sola.github.edgeloadingview.EdgeLoadingView
+        <com.sola.github.loading_view.EdgeLoadingView
             android:id="@+id/id_edge_loading_6"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -103,7 +103,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.sola.github.edgeloadingview.EdgeLoadingView
+        <com.sola.github.loading_view.EdgeLoadingView
             android:id="@+id/id_edge_loading_7"
             android:layout_width="match_parent"
             android:layout_height="200dp"

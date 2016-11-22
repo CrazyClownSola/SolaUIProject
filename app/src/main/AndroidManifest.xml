@@ -2,6 +2,8 @@
 <manifest package="com.sola.github.solauiproject"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -29,6 +31,22 @@
             android:name=".EdgeActivity_"
             android:screenOrientation="portrait"
             android:theme="@style/MaterialTheme"/>
+        <activity
+            android:name=".LabelActivity_"
+            android:screenOrientation="portrait"
+            android:theme="@style/MaterialTheme"/>
+
+        <activity
+            android:name=".WebFixContentActivity_"
+            android:screenOrientation="portrait"
+            android:theme="@style/MaterialTheme"/>
+
+        <activity
+            android:name=".ScanViewActivity_"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/MaterialTheme"/>
+
 
     </application>
 

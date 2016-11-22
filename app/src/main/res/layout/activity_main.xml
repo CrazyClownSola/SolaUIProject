@@ -27,6 +27,19 @@
             android:layout_margin="8dp"
             android:text="Edge"/>
 
+        <Button
+            android:id="@+id/id_btn_web"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Web"/>
+
+        <Button
+            android:id="@+id/id_btn_scan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Scan"/>
     </LinearLayout>
 
 </LinearLayout>

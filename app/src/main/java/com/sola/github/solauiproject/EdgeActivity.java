@@ -2,7 +2,8 @@ package com.sola.github.solauiproject;
 
 import android.view.View;
 
-import com.sola.github.edgeloadingview.EdgeLoadingView;
+
+import com.sola.github.loading_view.EdgeLoadingView;
 
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
@@ -57,60 +58,60 @@ public class EdgeActivity extends RxBaseActivity {
     @Override
     protected void doAfterViews() {
         id_edge_loading_2.setTriangleColors(new int[]{
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_1,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_2,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_3,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_4,
+                R.color.color_edge_loading_1,
+                R.color.color_edge_loading_2,
+                R.color.color_edge_loading_3,
+                R.color.color_edge_loading_4,
         });
         id_edge_loading_3.setTriangleColors(new int[]{
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_1,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_2,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_3,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_4,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_5,
+                R.color.color_edge_loading_1,
+                R.color.color_edge_loading_2,
+                R.color.color_edge_loading_3,
+                R.color.color_edge_loading_4,
+                R.color.color_edge_loading_5,
         });
         id_edge_loading_4.setTriangleColors(new int[]{
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_1,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_2,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_3,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_4,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_5,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_6,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_7,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_8,
+                R.color.color_edge_loading_1,
+                R.color.color_edge_loading_2,
+                R.color.color_edge_loading_3,
+                R.color.color_edge_loading_4,
+                R.color.color_edge_loading_5,
+                R.color.color_edge_loading_6,
+                R.color.color_edge_loading_7,
+                R.color.color_edge_loading_8,
         });
         id_edge_loading_5.setTriangleColors(new int[]{
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_1,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_2,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_3,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_4,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_5,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_6,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_7,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_8,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_9,
+                R.color.color_edge_loading_1,
+                R.color.color_edge_loading_2,
+                R.color.color_edge_loading_3,
+                R.color.color_edge_loading_4,
+                R.color.color_edge_loading_5,
+                R.color.color_edge_loading_6,
+                R.color.color_edge_loading_7,
+                R.color.color_edge_loading_8,
+                R.color.color_edge_loading_9,
         });
         id_edge_loading_6.setTriangleColors(new int[]{
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_1,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_2,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_3,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_4,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_5,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_6,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_7,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_8,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_9,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_10,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_11,
-                com.sola.github.edgeloadingview.R.color.color_edge_loading_12,
+                R.color.color_edge_loading_1,
+                R.color.color_edge_loading_2,
+                R.color.color_edge_loading_3,
+                R.color.color_edge_loading_4,
+                R.color.color_edge_loading_5,
+                R.color.color_edge_loading_6,
+                R.color.color_edge_loading_7,
+                R.color.color_edge_loading_8,
+                R.color.color_edge_loading_9,
+                R.color.color_edge_loading_10,
+                R.color.color_edge_loading_11,
+                R.color.color_edge_loading_12,
         });
         id_edge_loading_7.setTriangleColors(
                 new int[]{
-                        com.sola.github.edgeloadingview.R.color.color_edge_loading_1,
-                        com.sola.github.edgeloadingview.R.color.color_edge_loading_2,
-                        com.sola.github.edgeloadingview.R.color.color_edge_loading_3,
-                        com.sola.github.edgeloadingview.R.color.color_edge_loading_4,
-                        com.sola.github.edgeloadingview.R.color.color_edge_loading_5,
+                        R.color.color_edge_loading_1,
+                        R.color.color_edge_loading_2,
+                        R.color.color_edge_loading_3,
+                        R.color.color_edge_loading_4,
+                        R.color.color_edge_loading_5,
                 }
         );
     }
