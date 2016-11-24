@@ -1,4 +1,4 @@
-package com.sola.github.solauiproject;
+package com.sola.github.tools;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import com.sola.github.solauiproject.R;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
@@ -36,16 +38,16 @@ public abstract class RxBaseActivity extends AppCompatActivity {
     // ===========================================================
 
     @ViewById
-    Toolbar id_tool_bar;
+    protected Toolbar id_tool_bar;
 
     @ViewById
-    TextView id_text_title;
+    protected TextView id_text_title;
 
     @Extra("menu_id")
-    int menu_id = -1;
+    protected int menu_id = -1;
 
     @Extra
-    String title;
+    protected String title;
 
     protected WeakReference<Context> mContext = new WeakReference<Context>(this);
 

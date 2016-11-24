@@ -1,6 +1,7 @@
 package com.sola.github.solauiproject;
 
 import com.sola.github.scan_view.ScanWifiView;
+import com.sola.github.tools.RxBaseActivity;
 
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;

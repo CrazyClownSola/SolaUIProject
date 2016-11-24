@@ -4,6 +4,7 @@ import android.view.View;
 
 
 import com.sola.github.loading_view.EdgeLoadingView;
+import com.sola.github.tools.RxBaseActivity;
 
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;

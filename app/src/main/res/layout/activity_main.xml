@@ -40,6 +40,28 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:text="Scan"/>
+
+        <Button
+            android:id="@+id/id_btn_wow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Wow"/>
+
+        <Button
+            android:id="@+id/id_btn_Empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Empty"/>
+
+        <Button
+            android:id="@+id/id_btn_fuzzy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Fuzzy"/>
+
     </LinearLayout>
 
 </LinearLayout>

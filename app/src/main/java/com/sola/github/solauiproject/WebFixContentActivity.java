@@ -3,7 +3,6 @@ package com.sola.github.solauiproject;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.webkit.JavascriptInterface;
@@ -18,11 +17,11 @@ import com.google.gson.Gson;
 import com.sola.github.solauiproject.param.UserInfoDTO;
 import com.sola.github.solauiproject.tools.DefaultWebKitClient;
 import com.sola.github.solauiproject.tools.MyWebChromeClient;
+import com.sola.github.tools.RxBaseActivity;
 
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.EditorAction;
-import org.androidannotations.annotations.Extra;
 import org.androidannotations.annotations.ViewById;
 
 /**

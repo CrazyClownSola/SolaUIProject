@@ -47,6 +47,22 @@
             android:screenOrientation="portrait"
             android:theme="@style/MaterialTheme"/>
 
+        <activity
+            android:name=".WowActivity_"
+            android:screenOrientation="portrait"
+            android:theme="@style/MaterialTheme"
+            />
+        <activity
+            android:name=".EmptyActivity_"
+            android:screenOrientation="portrait"
+            android:theme="@style/MaterialTheme"
+            />
+
+        <activity
+            android:name=".FuzzyImageActivity_"
+            android:screenOrientation="portrait"
+            android:theme="@style/MaterialTheme"
+            />
 
     </application>
 

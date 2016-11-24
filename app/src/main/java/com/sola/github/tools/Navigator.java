@@ -1,4 +1,4 @@
-package com.sola.github.solauiproject.tools;
+package com.sola.github.tools;
 
 import android.app.Activity;
 import android.content.Context;

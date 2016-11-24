@@ -15,6 +15,9 @@ android {
         targetSdkVersion config.getAt("androidTargetSdkVersion")
         versionCode config.getAt("androidVersionCode")
         versionName config.getAt("androidVersionName")
+
+        renderscriptTargetApi 19
+        renderscriptSupportModeEnabled true
     }
 
     buildTypes {
@@ -55,6 +58,11 @@ dependencies {
     compile dependencies.design
 
     compile dependencies.gson
+
+    compile dependencies.retrofit
+    compile dependencies.retrofit_gson
+    compile dependencies.retrofit_adapter
+
 
 //    apt "org.androidannotations:androidannotations:4.0.0"
 //    compile 'org.androidannotations:androidannotations-api:4.0.0'

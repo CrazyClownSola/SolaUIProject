@@ -1,5 +1,7 @@
 package com.sola.github.solauiproject;
 
+import com.sola.github.tools.RxBaseActivity;
+
 import org.androidannotations.annotations.EActivity;
 
 /**

@@ -14,5 +14,12 @@
         <attr name="dg_size_offset" format="dimension"/>
     </declare-styleable>
 
+    <declare-styleable name="WoWPathView">
+        <attr name="pathColor" format="color"/>
+        <attr name="pathWidth" format="float"/>
+        <attr name="headImageId" format="integer"/>
+        <attr name="headImageWidth" format="float"/>
+        <attr name="headImageHeight" format="float"/>
+    </declare-styleable>
 
 </resources>
