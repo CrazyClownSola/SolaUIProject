@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SolaUIProject.iml" filepath="$PROJECT_DIR$/SolaUIProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blur/blur.iml" filepath="$PROJECT_DIR$/blur/blur.iml" />
       <module fileurl="file://$PROJECT_DIR$/dragfullview/dragfullview.iml" filepath="$PROJECT_DIR$/dragfullview/dragfullview.iml" />
     </modules>
   </component>

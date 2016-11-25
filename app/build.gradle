@@ -45,6 +45,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile project(':dragfullview')
+    compile project(':blur')
 //    compile project(':edgeloadingview')
 
     def dependencies = rootProject.ext.appDependencies
@@ -62,7 +63,6 @@ dependencies {
     compile dependencies.retrofit
     compile dependencies.retrofit_gson
     compile dependencies.retrofit_adapter
-
 
 //    apt "org.androidannotations:androidannotations:4.0.0"
 //    compile 'org.androidannotations:androidannotations-api:4.0.0'
