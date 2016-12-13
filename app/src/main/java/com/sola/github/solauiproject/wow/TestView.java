@@ -117,7 +117,7 @@ public class TestView extends View {
 
     private void init() {
 
-        animatorSet = ObjectAnimator.ofFloat(this, "mPoint", 1f, 0f);
+        animatorSet = ObjectAnimator.ofFloat(this, "mPoint", 0f, 1f);
         animatorSet.setDuration(1000);
         animatorSet.setInterpolator(new LinearInterpolator());
         animatorSet.start();

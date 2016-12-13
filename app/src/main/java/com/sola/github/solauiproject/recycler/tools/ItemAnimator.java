@@ -1,5 +1,6 @@
 package com.sola.github.solauiproject.recycler.tools;
 
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SimpleItemAnimator;
 
@@ -31,6 +32,9 @@ public class ItemAnimator extends SimpleItemAnimator {
 
     @Override
     public boolean animateRemove(RecyclerView.ViewHolder holder) {
+//        DefaultItemAnimator
+//
+//        canReuseUpdatedViewHolder()
         return false;
     }
 
