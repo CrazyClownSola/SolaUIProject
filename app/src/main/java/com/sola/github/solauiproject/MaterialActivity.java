@@ -55,19 +55,20 @@ public class MaterialActivity extends RxBaseActivity {
     // Methods for/from SuperClass/Interfaces
     // ===========================================================
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+
     @Override
     protected void doAfterViews() {
-
-        // 一种昂贵的裁剪布局
-        id_text_block.setOutlineProvider(new ViewOutlineProvider() {
-            @Override
-            public void getOutline(View view, Outline outline) {
-                outline.setRect(0, 0, 100, 100);
-            }
-        });
-        id_text_block.setClipToOutline(true);
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            // 一种昂贵的裁剪布局
+            id_text_block.setOutlineProvider(new ViewOutlineProvider() {
+                @Override
+                public void getOutline(View view, Outline outline) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+                        outline.setRect(0, 0, 100, 100);
+                }
+            });
+            id_text_block.setClipToOutline(true);
+        }
         buildAutoEditText();
 
     }
