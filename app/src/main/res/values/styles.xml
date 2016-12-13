@@ -1,11 +1,11 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="MaterialBaseTheme" parent="Theme.AppCompat.Light">
+    <style name="MaterialBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!--自定义ActionBar-->
         <item name="android:windowActionBar">false</item>
         <!--无标题-->
@@ -27,6 +27,7 @@
         <!--注意这两两个参数没有android前缀-->
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
+        <!-- android transitions -->
     </style>
 
 

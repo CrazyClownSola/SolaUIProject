@@ -1,9 +1,13 @@
 package com.sola.github.tools;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Pair;
+import android.view.View;
 
 import com.sola.github.solauiproject.R;
 
@@ -28,7 +32,7 @@ public class Navigator {
     // Constructors
     // ===========================================================
 
-    public Navigator() {
+    private Navigator() {
     }
 
     // ===========================================================
@@ -67,7 +71,7 @@ public class Navigator {
         switchActivityForResult(context, -1, intent);
     }
 
-    public void switchActivityForResult(final Context context, int requestCode, Class<?> cls, Bundle bundle) {
+    private void switchActivityForResult(final Context context, int requestCode, Class<?> cls, Bundle bundle) {
         Intent intent = new Intent();
         intent.setClass(context, cls);
         if (bundle != null && !bundle.isEmpty())
@@ -75,11 +79,11 @@ public class Navigator {
         switchActivityForResult(context, requestCode, intent);
     }
 
-    public void switchActivityForResult(final Context context, int requestCode, Intent intent) {
+    private void switchActivityForResult(final Context context, int requestCode, Intent intent) {
         switchActivityForResult(context, requestCode, intent, R.anim.fade_in_left, R.anim.activity_back);
     }
 
-    public void switchActivityForResult(final Context context, int requestCode, Intent intent, int targetInAnim, int currentOutAnim) {
+    private void switchActivityForResult(final Context context, int requestCode, Intent intent, int targetInAnim, int currentOutAnim) {
         if (context instanceof Activity && requestCode != -1)
             ((Activity) context).startActivityForResult(intent, requestCode);
         else
@@ -95,12 +99,60 @@ public class Navigator {
         intent.setClass(context, cls);
         if (bundle != null && !bundle.isEmpty())
             intent.putExtras(bundle);
-        if (context instanceof Activity && requestCode != -1)
+        if (context instanceof Activity && requestCode != -1) {
             ((Activity) context).startActivityForResult(intent, requestCode);
-        else
+        } else {
             context.startActivity(intent);
+        }
         if (context instanceof Activity)
             // 第一个参数是目标Activity进入时的动画，第二个参数是当前Activity退出时的动画
+            ((Activity) context).overridePendingTransition(targetInAnim, currentOutAnim);
+    }
+
+    public void switchActivityWithTransition(
+            final Context context, Class<?> cls, Bundle bundle, int requestCode,
+            int targetInAnim, int currentOutAnim,
+            View shareView, String shareTarget
+    ) {
+        if (shareView == null)
+            switchActivityWithTransition(context, cls, bundle, requestCode, targetInAnim, currentOutAnim);
+        else
+            switchActivityWithTransition(context, cls, bundle, requestCode, targetInAnim, currentOutAnim,
+                    Pair.create(shareView, shareTarget));
+    }
+
+    @SafeVarargs
+    public final void switchActivityWithTransition(
+            final Context context, Class<?> cls, Bundle bundle, int requestCode,
+            int targetInAnim, int currentOutAnim,
+            Pair<View, String>... pairs
+    ) {
+        Intent intent = new Intent();
+        intent.setClass(context, cls);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && context instanceof Activity) {
+            if (pairs != null && pairs.length > 0) {
+                ActivityOptions options =
+                        ActivityOptions.makeSceneTransitionAnimation(((Activity) context), pairs);
+                if (bundle != null && !bundle.isEmpty())
+                    options.toBundle().putAll(bundle);
+                if (requestCode == -1)
+                    context.startActivity(intent, options.toBundle());
+                else
+                    ((Activity) context).startActivityForResult(intent, requestCode, options.toBundle());
+            } else {
+                if (bundle != null && !bundle.isEmpty())
+                    intent.putExtras(bundle);
+                if (requestCode == -1)
+                    context.startActivity(intent, bundle);
+                else
+                    ((Activity) context).startActivityForResult(intent, requestCode, bundle);
+            }
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            context.startActivity(intent, bundle);
+        } else {
+            context.startActivity(intent);
+        }
+        if (context instanceof Activity)
             ((Activity) context).overridePendingTransition(targetInAnim, currentOutAnim);
     }
 

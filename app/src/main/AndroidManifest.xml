@@ -64,6 +64,22 @@
             android:theme="@style/MaterialTheme"
             />
 
+        <activity
+            android:name=".MaterialActivity_"
+            android:screenOrientation="portrait"
+            android:theme="@style/MaterialTheme"
+            />
+
+        <activity
+            android:name=".transitions.TransitionFirstActivity_"
+            android:screenOrientation="portrait"
+            android:theme="@style/MaterialTheme"/>
+
+        <activity
+            android:name=".transitions.TransitionSecondActivity_"
+            android:screenOrientation="portrait"
+            android:theme="@style/MaterialTheme"/>
+
     </application>
 
 </manifest>

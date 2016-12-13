@@ -49,7 +49,7 @@ public abstract class RxBaseActivity extends AppCompatActivity {
     @Extra
     protected String title;
 
-    protected WeakReference<Context> mContext = new WeakReference<Context>(this);
+    protected WeakReference<Context> mContext = new WeakReference<>(this);
 
     // ===========================================================
     // Constructors
@@ -99,7 +99,10 @@ public abstract class RxBaseActivity extends AppCompatActivity {
         if (id_text_title != null)
             id_text_title.setText(title);
         if (id_tool_bar != null) {
-            id_tool_bar.setTitle("");// 这个是由于希望界面当中的Title的
+            if (id_text_title == null && title != null)
+                id_tool_bar.setTitle(title);// 这个是由于希望界面当中的Title的
+            else
+                id_tool_bar.setTitle("");
             setSupportActionBar(id_tool_bar);// 这句话是为了让下面的调用系统返回键成立
             // 设置系统默认的back键
             if (getSupportActionBar() != null)

@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">SolaUIProject</string>
+
+
+    <string-array name="string_array_countries_array">
+        <item>Afghanistan</item>
+        <item>Albania</item>
+        <item>Algeria</item>
+        <item>American Samoa</item>
+        <item>Andorra</item>
+        <item>Angola</item>
+        <item>Anguilla</item>
+        <item>Antarctica</item>
+    </string-array>
+
 </resources>

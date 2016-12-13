@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="AppTheme" parent="android:Theme.Material.Light">
-    </style>
-
     <style name="MaterialTheme" parent="MaterialBaseTheme">
         <!--注意这两两个参数没有android前缀-->
         <item name="windowNoTitle">true</item>
@@ -14,6 +11,7 @@
         <item name="android:windowContentTransitions">true</item>
         <item name="android:windowAllowEnterTransitionOverlap">true</item>
         <item name="android:windowAllowReturnTransitionOverlap">true</item>
+
     </style>
 
 

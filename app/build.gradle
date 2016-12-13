@@ -57,6 +57,7 @@ dependencies {
     compile dependencies.appcompat
     compile dependencies.cardview
     compile dependencies.design
+    compile dependencies.palette
 
     compile dependencies.gson
 

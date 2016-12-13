@@ -7,7 +7,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.2'
+        classpath 'com.android.tools.build:gradle:2.2.3'
 
         //apt 环境编译条件
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
@@ -15,7 +15,7 @@ buildscript {
         // lambda表达式的三方库的引用
         classpath 'me.tatarka:gradle-retrolambda:3.2.5'
 
-        classpath 'com.android.tools.build:gradle-experimental:0.8.2'
+        classpath 'com.android.tools.build:gradle-experimental:0.8.3'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -26,8 +26,9 @@ allprojects {
     repositories {
         jcenter()
     }
-}
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+    // 项目打包处理，打包的时候 在gradlew下运行下面这个task 会讲build目录下的文件全部删除，方便打包上传代码
+    task pkg_clean(type: Delete) {
+        delete project.buildDir
+    }
 }
