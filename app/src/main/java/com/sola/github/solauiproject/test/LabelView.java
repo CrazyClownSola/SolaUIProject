@@ -2,17 +2,13 @@ package com.sola.github.solauiproject.test;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.CornerPathEffect;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.PathDashPathEffect;
 import android.graphics.RectF;
-import android.graphics.SumPathEffect;
 import android.support.v4.content.ContextCompat;
 import android.text.TextPaint;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.TextView;
 
 import com.sola.github.solauiproject.R;
@@ -153,7 +149,7 @@ public class LabelView extends TextView {
     /**
      * 使用反射的方法进行字体颜色的设置
      *
-     * @param color
+     * @param color 传入的色值
      */
     private void setTextColorUseReflection(int color) {
         Field textColorField;

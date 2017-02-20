@@ -58,6 +58,9 @@ public class MaterialActivity extends RxBaseActivity {
 
     @Override
     protected void doAfterViews() {
+//        Resources.getSystem().
+//        UrlQuerySanitizer.getAllButNulAndAngleBracketsLegal().
+//        TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, Resources.getSystem().getDisplayMetrics());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             // 一种昂贵的裁剪布局
             id_text_block.setOutlineProvider(new ViewOutlineProvider() {

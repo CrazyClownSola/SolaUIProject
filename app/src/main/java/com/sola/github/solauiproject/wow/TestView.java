@@ -1,7 +1,6 @@
 package com.sola.github.solauiproject.wow;
 
 import android.animation.Animator;
-import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -16,7 +15,6 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 
 import com.sola.github.solauiproject.R;
-import com.sola.github.wow.eases.AntiLinear;
 import com.sola.github.wow.eases.EaseType;
 
 /**
@@ -82,6 +80,7 @@ public class TestView extends View {
     // Getter & Setter
     // ===========================================================
 
+    @SuppressWarnings("unused")
     public void setMPoint(float mPoint) {
         this.mPoint = mPoint;
         PointF pointF = type.getPoint(mPoint);
@@ -113,11 +112,8 @@ public class TestView extends View {
     // Methods
     // ===========================================================
 
-    private Animator animatorSet;
-
     private void init() {
-
-        animatorSet = ObjectAnimator.ofFloat(this, "mPoint", 0f, 1f);
+        Animator animatorSet = ObjectAnimator.ofFloat(this, "mPoint", 0f, 1f);
         animatorSet.setDuration(1000);
         animatorSet.setInterpolator(new LinearInterpolator());
         animatorSet.start();

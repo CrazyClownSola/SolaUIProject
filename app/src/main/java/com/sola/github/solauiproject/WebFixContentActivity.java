@@ -2,7 +2,10 @@ package com.sola.github.solauiproject;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.webkit.JavascriptInterface;
@@ -67,6 +70,7 @@ public class WebFixContentActivity extends RxBaseActivity {
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         initWebSetting();
+        id_web_view.loadUrl("http://dl.domestore.cn/domestore/posts/56.html");
 //        id_web_view.loadUrl("file:///android_asset/index.html");
 //        id_web_view.loadUrl(itemDto.getExtraLink());
     }
@@ -107,23 +111,34 @@ public class WebFixContentActivity extends RxBaseActivity {
     @SuppressLint("SetJavaScriptEnabled")
     @SuppressWarnings("deprecation")
     private void initWebSetting() {
+        id_web_view.setDownloadListener((url, userAgent, contentDisposition, mimetype, contentLength) -> {
+            Uri uri = Uri.parse(url);
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+        });
+
         WebSettings webSettings = id_web_view.getSettings();
         webSettings.setDomStorageEnabled(true);
         webSettings.setJavaScriptEnabled(true);
 //        webSettings.setDatabaseEnabled(true);
 //        String dataPath = getDir("database", Context.MODE_PRIVATE).getPath();
 //        webSettings.setDatabasePath(dataPath);
-//        webSettings.setGeolocationEnabled(true);
+        webSettings.setGeolocationEnabled(true);
 //        webSettings.setGeolocationDatabasePath(dataPath);
-//        webSettings.setBuiltInZoomControls(true);
 //        webSettings.setRenderPriority(WebSettings.RenderPriority.HIGH);
-//        webSettings.setAllowFileAccess(true);
+        webSettings.setAllowFileAccess(true);
 //        webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
 //        webSettings.setLoadWithOverviewMode(true);
-//        webSettings.setSupportZoom(false);
+        webSettings.setSupportZoom(true);
+        webSettings.setDisplayZoomControls(false);
+        webSettings.setBuiltInZoomControls(true);
+        webSettings.setUseWideViewPort(true);
+        webSettings.setLoadWithOverviewMode(true);
 //        webSettings.setAppCacheEnabled(true);
         webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
-//        id_web_view.requestFocusFromTouch();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
+
         kitClient = new DefaultWebKitClient();
         kitClient.setCallback(new DefaultWebKitClient.WebClientCallback() {
             @Override
@@ -158,8 +173,7 @@ public class WebFixContentActivity extends RxBaseActivity {
             @JavascriptInterface
             @Override
             public String getUserInfo() {
-                String retStr = userInfoStr();
-                return retStr;
+                return userInfoStr();
             }
 
             @JavascriptInterface

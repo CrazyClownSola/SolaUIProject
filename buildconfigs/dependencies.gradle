@@ -1,10 +1,10 @@
 ext {
     androidVersionCode = 24 // 备注一下，Code19以下的版本，需要注意进行环信帐号的自主申请功能的实现
-    androidVersionName = "1.0.0"
+    androidVersionName = "1.0.1"
 
     //Android
     androidBuildToolsVersion = "24.0.2"
-    androidMinSdkVersion = 14
+    androidMinSdkVersion = 16
     androidTargetSdkVersion = 24
     androidCompileSdkVersion = 24
 

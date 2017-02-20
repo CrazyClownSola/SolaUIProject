@@ -57,6 +57,12 @@ public class TransitionFirstActivity extends RxBaseActivity {
 
     @Override
     protected void doAfterViews() {
+        // 当Transition需要图片作为过渡的时候
+//        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//        ((BitmapDrawable) id_image_item_shown.getDrawable()).getBitmap().
+//                compress(Bitmap.CompressFormat.PNG, 100, stream);
+//        intent.putExtra("image", stream.toByteArray());
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Slide slide = new Slide(Gravity.BOTTOM);
             slide.excludeTarget(android.R.id.navigationBarBackground, true);

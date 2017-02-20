@@ -65,6 +65,11 @@ dependencies {
     compile dependencies.retrofit_gson
     compile dependencies.retrofit_adapter
 
+    compile dependencies.androidSupport
+
+    // 强大的AE实现库，通过对AE动画进行插件，调整成一个.json文件，然后通过该控件进行界面显示
+    compile 'com.airbnb.android:lottie:1.0.1'
+
 //    apt "org.androidannotations:androidannotations:4.0.0"
 //    compile 'org.androidannotations:androidannotations-api:4.0.0'
 //
