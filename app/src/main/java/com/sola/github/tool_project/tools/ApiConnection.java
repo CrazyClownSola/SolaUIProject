@@ -1,8 +1,5 @@
 package com.sola.github.tool_project.tools;
 
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.os.Bundle;
 import android.util.Log;
 
 import com.google.gson.Gson;

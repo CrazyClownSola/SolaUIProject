@@ -15,7 +15,6 @@ import android.graphics.RectF;
 import android.support.annotation.ColorInt;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
@@ -31,7 +30,7 @@ public class EdgeLoadingView extends View {
     // Constants
     // ===========================================================
 
-    private final static String TAG = "Sola_Edge";
+//    private final static String TAG = "Sola_Edge";
 
     private final static int DEFAULT_CYCLE_DURATION = 2400;
     private final static float DEFAULT_CYCLE_RADIUS = 60;
@@ -82,7 +81,7 @@ public class EdgeLoadingView extends View {
     public void setSweepAngle(float sweepAngle) {
         this.sweepAngle = sweepAngle;
         invalidate();
-        Log.d(TAG, "setSweepAngle: ");
+//        Log.d(TAG, "setSweepAngle: ");
     }
 
     @SuppressWarnings("unused")
@@ -120,9 +119,20 @@ public class EdgeLoadingView extends View {
         invalidate();
     }
 
-    // ===========================================================
+    public void setRadius(float mRadius) {
+        this.mRadius = mRadius;
+//        invalidate();
+    }
+// ===========================================================
     // Methods for/from SuperClass/Interfaces
     // ===========================================================
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+//        Log.e(TAG, "onDetachedFromWindow: ");
+        destroy();
+    }
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -208,8 +218,6 @@ public class EdgeLoadingView extends View {
                     roundDegree += innerAngle;
                     if (roundDegree > 360)
                         roundDegree = 0;
-//                    if (++mRadius > MAX_RADIUS)
-//                        mRadius = MAX_RADIUS;
                 }
 
                 @Override
@@ -314,6 +322,8 @@ public class EdgeLoadingView extends View {
         }
         float alpha = (1 - sweepAngle % innerAngle / innerAngle) * 255f;
         int degree = (int) ((sweepAngle - 360) / innerAngle);
+        if (degree >= triangleColors.length)
+            degree = triangleColors.length - 1;
         canvas.drawPath(disappearPath, createPaint(triangleColors[degree], (int) alpha));
         canvas.restore();
     }

@@ -106,6 +106,7 @@ public class EdgeActivity extends RxBaseActivity {
                 R.color.color_edge_loading_11,
                 R.color.color_edge_loading_12,
         });
+//        id_edge_loading.setOnClickListener(v -> );
         id_edge_loading_7.setTriangleColors(
                 new int[]{
                         R.color.color_edge_loading_1,
