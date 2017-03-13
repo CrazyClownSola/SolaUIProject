@@ -12,5 +12,5 @@
 ## DragView
 > 可拖拽的界面
 
-![image](https://github.com/CrazyClownSola/SolaUIProject/blob/master/screenshot/20160908104918.gif)
+![image](/screenshot/20160908104918.gif)
 
