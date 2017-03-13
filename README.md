@@ -6,7 +6,7 @@
 ## EdgeLoadingView
 > 菱形loading界面
 
-![image](https://github.com/CrazyClownSola/SolaUIProject/blob/master/screenshot/20160908102923.gif)
+![image](/screenshot/20160908102923.gif)
 
 
 ## DragView
